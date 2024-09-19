@@ -1,0 +1,22 @@
+name: Docker build and publish
+
+on:
+    push:
+        branches:
+            - master
+
+jobs: 
+    build-and-push:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Clone code
+              uses: actions/checkout@v2
+
+            - name: Login to Docker Hub
+              run: docker login -u "${{ secrets.DOCKER_USERNAME }}" - "${{ secrets.DOCKER_PASSWORD }}"
+
+            - name: Build Docker Image
+              run: docker build -t lilpan6969/viruelachangoapi:${{ github.sha }} .
+            
+            - name: Push Docker Image
+              run: docjker push lilpan6969/viruelachangoapi:${{ github.sha }}
