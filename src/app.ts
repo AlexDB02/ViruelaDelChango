@@ -16,7 +16,6 @@ app.use(AppRoutes.routes);
     mongoUrl: envs.MONGO_URL ?? ""
 }))();
 
-
 app.listen(3001, ()=>{
     console.log("El servidor está corriendo correctamente.");
     emailJob();

@@ -3,6 +3,7 @@ import { changoModel } from "../data/models/changoModels"
 
 export class viruelaController{
 
+    // Obtenener los casos registrados
     public getCasos = async(req: Request, res: Response) => {
         try{
             const casoViruela = await changoModel.find()
@@ -13,6 +14,7 @@ export class viruelaController{
         }
     }
 
+    // Creación de un nuevo caso
     public crearCaso = async(req: Request, res:  Response) => {
         try{
             const {lat, lng, genre, age} = req.body;
@@ -30,6 +32,7 @@ export class viruelaController{
         }
     }
 
+    // Últimos 7 dias
     public get7dias = async (req: Request, res: Response) => {
         try{
             const lastWeek = new Date();
@@ -44,6 +47,7 @@ export class viruelaController{
         }
     }
 
+    // Actualizar caso
     public actualizarCaso = async (req: Request, res: Response) => {
         try{
             const { id } = req.params;
@@ -62,6 +66,7 @@ export class viruelaController{
         }
     }
 
+    // Eliminar caso
     public eliminarCaso = async (req:Request,res : Response)=>{
         try {
             const { id } = req.params;

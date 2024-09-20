@@ -5,7 +5,6 @@ interface ConnectionOptions{
     dbName: string;
 }
 
-
 export class MongoDatabase{
     static async connect(options:ConnectionOptions){
         try{
