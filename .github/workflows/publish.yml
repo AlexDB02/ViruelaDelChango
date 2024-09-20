@@ -16,7 +16,7 @@ jobs:
             run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
 
           - name: Build Docker Image
-            run: docker build -t lilpan6969/viruelachangoapi:${{ github.sha }} .
+            run: docker build -t lilpan6969/viruelachangoapi:${{ github.sha }} 
             
           - name: Push Docker Image
             run: docker push lilpan6969/viruelachangoapi:${{ github.sha }}
