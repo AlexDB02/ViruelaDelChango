@@ -17,6 +17,11 @@ jobs:
 
           - name: Build Docker Image
             run: docker build -t lilpan6969/viruelachangoapi:${{ github.sha }} .
+
+          - name: Tag Latest
+            run: docker tag lilpan6969/viruelachangoapi:${{ github.sha }} lilpan6969/viruelachangoapi:latest
             
           - name: Push Docker Image
-            run: docker push lilpan6969/viruelachangoapi:${{ github.sha }}
+            run: |
+              docker push lilpan6969/viruelachangoapi:${{ github.sha }}
+              docker push lilpan6969/viruelachangoapi:latest
